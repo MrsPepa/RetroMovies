@@ -1,42 +1,65 @@
+/* caracteristicas generales */
 body {
   background-color: #FAF8CE;
   color: #006D72;
 }
+
+
+/* estilos de navbar */
+.navbar {
+  background-color: #faf8ce;
+  color: #006d72;
+  font-family: 'Kite One', sans-serif;
+  font-weight: bold;
+}
 .navbar-default .navbar-nav>li>a {
   color: #006d72;
 }
-.navbar-brand-centered {
-  position: absolute;
-  left: 50%;
-  display: block;
-  width: 160px;
-  text-align: center;
-  background-color: transparent;
+.navbar-default .btn-link {
+  color: #006d72;
 }
-.navbar>.container .navbar-brand-centered,
-.navbar>.container-fluid .navbar-brand-centered,
-.navbar {
-  margin-left: -80px;
-  background-color: #FAF8CE;
-  color: #006D72;
-}
-#logo {
-  
-}
-.s-icon > #addClass {
-    background: #fff none repeat scroll 0 0 !important;
-    color: #006d72;
-    font-size: 26px;
-    height: 44px;
-    margin: 3px -12px 0 0;
-    padding: 7px 0 0 !important;
-    text-align: center;
-    width: 44px;
-    background-color: transparent!important;
-}
-#addClass:hover {
+.navbar-default .btn-link:focus, .navbar-default .btn-link:hover {
   color: teal;
+  text-decoration: none;
 }
+/* estilos buscador */
+.navbar-bootsnipp .bootsnipp-search {
+  display: none;
+}
+.navbar-bootsnipp .bootsnipp-search .form-control {
+  background-color: rgb(235, 235, 235);
+  border-radius: 0px;
+  border-width: 0px;
+  font-size: 24px;
+  padding: 30px 0px;
+}
+.navbar-bootsnipp .bootsnipp-search .form-control {
+  background-color: rgb(235, 235, 235);
+  border-radius: 0px;
+  border-width: 0px;
+  font-size: 24px;
+  padding: 25px 0px;
+}
+.navbar-bootsnipp .bootsnipp-search .form-control:focus {
+  border-color: transparent;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn {
+  padding: 14px 16px;
+  border-radius: 0px;
+}
+.navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn.active,
+.navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn:hover,
+.navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn:focus {
+  padding: 14px 16px 14px 15px;
+}
+.navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn-default {
+  background-color: rgb(245, 245, 245);
+}
+
+
 .ho {
   font-family: 'Oleo Script', cursive;
 }
