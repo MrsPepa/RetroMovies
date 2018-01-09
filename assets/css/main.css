@@ -1,0 +1,46 @@
+body {
+  background-color: #FAF8CE;
+  color: #006D72;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #006d72;
+}
+.navbar-brand-centered {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: 160px;
+  text-align: center;
+  background-color: transparent;
+}
+.navbar>.container .navbar-brand-centered,
+.navbar>.container-fluid .navbar-brand-centered,
+.navbar {
+  margin-left: -80px;
+  background-color: #FAF8CE;
+  color: #006D72;
+}
+#logo {
+  
+}
+.s-icon > #addClass {
+    background: #fff none repeat scroll 0 0 !important;
+    color: #006d72;
+    font-size: 26px;
+    height: 44px;
+    margin: 3px -12px 0 0;
+    padding: 7px 0 0 !important;
+    text-align: center;
+    width: 44px;
+    background-color: transparent!important;
+}
+#addClass:hover {
+  color: teal;
+}
+.ho {
+  font-family: 'Oleo Script', cursive;
+}
+
+.to {
+  font-family: 'Kite One', sans-serif;
+}
