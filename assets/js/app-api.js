@@ -1,6 +1,15 @@
 $(document).ready(function () {
   $('#search-btn').click(searchMovie);
-  renderRandomMovies();
+  var count  = 0;
+  displayMovies();
+  function displayMovies() {
+    if (count <= 5) {
+    renderRandomMovies();
+    count++;
+    }
+  }
+  
+  
   //renderHorrorMovies();    
 
   // Carousel
@@ -121,6 +130,7 @@ function randomID() {
 
 function randomMovies(response) {
     movieResult = response;
+    $('.jcarousel').find('ul').append('<li><img src="'+movieResult.Poster+'" alt="'+movieResult.Title+'"></li>');
     console.log(movieResult);
     console.log("Title: "+movieResult.Title+", ID: " +movieResult.Type+ ', ' +movieResult.imbdID);
   }
