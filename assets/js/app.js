@@ -77,9 +77,9 @@ function cerrarSearch(){
       <form>
         <h2 class="logtitle">Iniciar sesión</h2>
         <p>Email</p>
-        <input type="text" name="" placeholder="Enter Email">
+        <input type="text" name="" id="email" placeholder="Email">
         <p>Contraseña</p>
-        <input type="password" name="" placeholder="••••••">
+        <input type="password" name="" id="contrasena" placeholder="••••••">
         <input type="submit" name="" id="loginbtn" value="Inicia sesión">
         <p>¿No tienes una cuenta?<a href="#" class="fliper-btn register-form-link"> Registrate</a></p>
       </form>
@@ -98,10 +98,10 @@ function cerrarSearch(){
       <form>
         <h2 class="logtitle">Registrate</h2>
         <p>Email</p>
-        <input type="text" name="" placeholder="Enter Email">
+        <input type="text" name="" id="email2" placeholder="Email">
         <p>Contraseña</p>
-        <input type="password" name="" placeholder="••••••">
-        <input type="submit" name="" id="loginbtn" value="Registrate">
+        <input type="password" name="" id="contrasena2" placeholder="••••••">
+        <input type="submit" name="" id="signup" value="Registrate">
         <p>¿Ya tienes una cuenta?<a href="#" id="haveacc" class="fliper-btn login-form-link"> Inicia Sesión</p>
       </form>
     </div>
@@ -115,6 +115,115 @@ function cerrarSearch(){
  $('#haveacc').click(function(){
   $('.face').addClass('hide')
   $('.flip').removeClass("hide");
+ });
+
+/* Initialize Firebase*/
+
+ var config = {
+    apiKey: "AIzaSyDyxOeEibwG-ZpO1a96-Br8wXsqqdzso74",
+    authDomain: "shaped-buttress-188103.firebaseapp.com",
+    databaseURL: "https://shaped-buttress-188103.firebaseio.com",
+    projectId: "shaped-buttress-188103",
+    storageBucket: "shaped-buttress-188103.appspot.com",
+    messagingSenderId: "798835163345"
+  };
+  firebase.initializeApp(config);
+
+$("#signup").click(function(){
+var email = document.getElementById("email").value;
+var contrasena = document.getElementById("contrasena").value;
+
+firebase.auth().createUserWithEmailAndPassword(email, contrasena)
+.then(function(){
+  verificar()
+})
+.catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  console.log(errorCode);
+  console.log(errorMessage);
 });
 });
- /*fin login*/
+
+
+$("#loginbtn").click(function(){
+  var email2 = document.getElementById("email2").value;
+  var contrasena2 = document.getElementById("contrasena2").value;
+  
+
+
+firebase.auth().signInWithEmailAndPassword(email2, contrasena2).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  console.log(errorCode);
+  console.log(errorMessage);
+});
+});
+
+
+function observador(){
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("existe usuario activo")
+    aparece(user);
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    console.log("**************");
+    console.log(user.emailVerified)
+    console.log("**************");
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    // ...
+  } else {
+    // User is signed out.
+    console.log("no existe usuario activo")
+    // ...
+  }
+});
+}
+observador();
+
+function aparece(user){
+  var user = user;
+  var contenido = document.getElementById("contenido");
+  if(user.emailVerified){
+alert("Ya estás conectado")
+  $(".inicio").hide()
+  }else{
+    alert("Verifica tu correo o no podrás loguear")
+}
+
+$(".logout").click(function(){
+  firebase.auth().signOut()
+  .then(function(){
+    console.log("saliendo...")
+  })
+  .catch(function(error){
+console.log(error)
+})
+});
+}
+
+function verificar(){
+  var user = firebase.auth().currentUser;
+
+user.sendEmailVerification().then(function () {
+  // Email sent.
+  alert("Enviando correo de verificación, una vez verificado su correo inicie sesión");
+
+}).catch(function(error) {
+  // An error happened.
+  alert("Ha ocurrido un error");
+});
+}
+//fin de login logout
+
+});
