@@ -3,10 +3,10 @@ $(document).ready(function () {
   renderRandomMovies();
   renderRandomMovies();
   renderRandomMovies();
-  renderRandomMovies(); 
+  renderRandomMovies();
 
   
-  //renderHorrorMovies();    
+  //renderHorrorMovies();
 
   // Carousel
   $(function() {
@@ -76,7 +76,7 @@ function searchMovie () {
 }
 
 /*
-* Función que imprime el resultado de la   
+* Función que imprime el resultado de la
 * consulta en index.html
 */
 function renderMovies (response) {

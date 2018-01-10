@@ -86,7 +86,7 @@ function searchMovie () {
   });
 }
 /*
-* Función que imprime el resultado de la   
+* Función que imprime el resultado de la
 * consulta en index.html
 */
 function renderMovies (response) {
@@ -181,21 +181,20 @@ function cerrarSearch(){
   firebase.initializeApp(config);
 
 $("#signup").click(function(){
-var email = document.getElementById("email").value;
-var contrasena = document.getElementById("contrasena").value;
-
-firebase.auth().createUserWithEmailAndPassword(email, contrasena)
-.then(function(){
+  var email = document.getElementById("email").value;
+  var contrasena = document.getElementById("contrasena").value;
+  firebase.auth().createUserWithEmailAndPassword(email, contrasena)
+  .then(function(){
   verificar()
 })
-.catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-  console.log(errorCode);
-  console.log(errorMessage);
-});
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
 });
 
 
