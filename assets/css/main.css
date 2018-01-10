@@ -7,12 +7,15 @@ body {
 
 
 /* estilos de navbar */
+.navbar {
+  margin-bottom: 0;
+}
 .links,
 .navbar-right {
   margin-top: 1.4em;
 }
 .navbar-left {
-  margin-left: 16%;
+  margin-left: 13%;
 }
 .navbar, .nav {
   background-color: #faf8ce;
@@ -34,6 +37,9 @@ body {
 /* estilos logotipo */
 .logotipo {
   width: 55%;
+}
+.logoMovil {
+  width: 10%;
 }
 /* estilos buscador */
 .navbar-bootsnipp .bootsnipp-search {
@@ -72,12 +78,44 @@ body {
   background-color: rgb(245, 245, 245);
 }
 
-
-.ho {
+/* estilos container */
+.second,
+.fourth {
+  width: 100%;
+  height: 600px;
+  background-color: #006d72;
+  color: #faf8ce;
+  text-align: center;
+}
+.third {
+  width: 100%;
+  height: 600px;
+  text-align: center;
+}
+.fifth {
+  width: 100%;
+  height: 250px;
+  font-family: 'Kite One', sans-serif;
+}
+/* contenido third */
+.welcome {
+  width: 75%;
+  height: 390px;
+  margin-top: 7em;
+  background-image: url(../img/prueba-foto.jpg);
+}
+h1 {
+  font-size: 36px;
   font-family: 'Oleo Script', cursive;
 }
+h2,
+h3,
+h4 {
+  font-family: 'Kite One', cursive;
+}
 
-.to {
+p,
+span {
   font-family: 'Kite One', sans-serif;
 }
 
@@ -300,3 +338,17 @@ body {
 
 
 /* Fin Carousel */
+
+
+/* Medias */
+@media(min-width: 1200px) {
+  .logotipo {
+    margin-left: 39%;
+  }
+}
+@media(max-width: 768px) {
+  .welcome {
+    width: 90%;
+    height: 65%;
+  }
+}
