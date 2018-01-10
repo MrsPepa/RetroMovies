@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $('#search-btn').click(searchMovie);
-  var count  = 0;
+  var count = 0;
   displayMovies();
   function displayMovies() {
     if (count <= 5) {

@@ -23,6 +23,7 @@ body {
   font-family: 'Kite One', sans-serif;
   /*font-weight: bold;*/
   font-size: 18px;
+  border: none;
 }
 .navbar-default .navbar-nav>li>a {
   color: #006d72;
@@ -86,16 +87,19 @@ body {
   background-color: #006d72;
   color: #faf8ce;
   text-align: center;
+  border: none;
 }
 .third {
   width: 100%;
   height: 600px;
   text-align: center;
+  border: none;
 }
 .fifth {
   width: 100%;
-  height: 250px;
+  height: auto;
   font-family: 'Kite One', sans-serif;
+  border: none;
 }
 /* contenido third */
 .welcome {
@@ -119,6 +123,19 @@ span {
   font-family: 'Kite One', sans-serif;
 }
 
+/* estilo de boton */
+.btn-link {
+  font-size: 16px;
+}
+/* diseño de borde de contenedor */
+.guata {
+  background-image: url(../img/guata.png);
+  z-index: 10000;
+  width: 100%;
+  height: 3.3em;
+  border: none;
+  background-color: #006d72;
+}
 /*inicio login*/
 #myVideo {
     position: fixed;
