@@ -93,7 +93,7 @@ $('.search').click(function(){
 */
 function searchMovie () {
   var title = $('.form-control').val();
-  var url = "http://www.omdbapi.com/?apikey=3a181f1c&s="+title;
+  var url = "https://www.omdbapi.com/?apikey=3a181f1c&s="+title;
   console.log(url);
   $.ajax({
     url: url,
