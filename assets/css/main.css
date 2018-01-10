@@ -379,6 +379,17 @@ h4 {
 
 /* Fin Carousel */
 
+/* Inicio Estilo Resultados Buscador */ 
+
+.search-results {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-results ul li {
+  list-style-type: none;
+}
 
 /* Medias */
 @media(min-width: 1200px) {
