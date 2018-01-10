@@ -23,7 +23,7 @@ $('.search').click(function(){
   });
 });
 /*
-* Función que se encarga de capturar el texto de busqueda  
+* Función que se encarga de capturar el texto de busqueda
 * para luego realizar la consulta con ese parametro
 */
 function searchMovie () {
