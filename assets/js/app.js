@@ -129,6 +129,7 @@ function cerrarSearch(){
   });
 };
 /* fin buscador */
+
 /* boton ir arriba */
 $(document).ready(function(){
   $('.ir-arriba').click(function(){
@@ -136,7 +137,7 @@ $(document).ready(function(){
       scrollTop: '0px'
     }, 300);
   });
- 
+
   $(window).scroll(function(){
     if( $(this).scrollTop() > 0 ){
       $('.ir-arriba').slideDown(300);
@@ -144,9 +145,9 @@ $(document).ready(function(){
       $('.ir-arriba').slideUp(300);
     }
   });
- 
 });
 /* fin boton ir arriba */
+
 /*aparece login*/
  $('#loginmainnvb').click(function(){
   $(".pagini").hide()
