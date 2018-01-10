@@ -1,7 +1,67 @@
 $(document).ready(function () {
   $('#search-btn').click(searchMovie);
-  renderRandomMovies();
+  var count  = 0;
+  displayMovies();
+  function displayMovies() {
+    if (count <= 5) {
+    renderRandomMovies();
+    count++;
+    }
+  }
+  
+  
   //renderHorrorMovies();    
+
+  // Carousel
+  $(function() {
+        var jcarousel = $('.jcarousel');
+
+        jcarousel
+            .on('jcarousel:reload jcarousel:create', function () {
+                var width = jcarousel.innerWidth();
+
+                if (width >= 900) {
+                    width = width / 4;
+                } else if (width >= 600) {
+                    width = width / 3;
+                } else if (width >= 400) {
+                    width = width / 2;
+                }
+
+                jcarousel.jcarousel('items').css('width', width + 'px');
+            })
+            .jcarousel({
+                wrap: 'circular'
+            });
+
+        $('.jcarousel-control-prev')
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .jcarouselControl({
+                target: '+=1'
+            });
+
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+            .on('click', function(e) {
+                e.preventDefault();
+            })
+            .jcarouselPagination({
+                perPage: 1,
+                item: function(page) {
+                    return '<a href="#' + page + '">' + page + '</a>';
+                }
+            });
+    });
+  // Fin Carousel
 })
 
 /*
@@ -70,6 +130,7 @@ function randomID() {
 
 function randomMovies(response) {
     movieResult = response;
+    $('.jcarousel').find('ul').append('<li><img src="'+movieResult.Poster+'" alt="'+movieResult.Title+'"></li>');
     console.log(movieResult);
-    console.log("Title: "+movieResult.Title+", ID: " +movieResult.Type+ ', ' +response.imbdID);
+    console.log("Title: "+movieResult.Title+", ID: " +movieResult.Type+ ', ' +movieResult.imbdID);
   }
