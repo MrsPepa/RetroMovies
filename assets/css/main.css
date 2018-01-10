@@ -7,11 +7,19 @@ body {
 
 
 /* estilos de navbar */
+.links,
+.navbar-right {
+  margin-top: 1.4em;
+}
+.navbar-left {
+  margin-left: 16%;
+}
 .navbar, .nav {
   background-color: #faf8ce;
   color: #006d72;
   font-family: 'Kite One', sans-serif;
-  font-weight: bold;
+  /*font-weight: bold;*/
+  font-size: 18px;
 }
 .navbar-default .navbar-nav>li>a {
   color: #006d72;
