@@ -1,5 +1,5 @@
 # Retro Movies
 ## Maqueteado final (login)
 
-Format: ![alt text](https://ibb.co/ibUw2R)
+![img](https://preview.ibb.co/cL7S96/maqueta.png)
 ##### versión `0.0.1`
