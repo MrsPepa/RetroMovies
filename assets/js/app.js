@@ -77,7 +77,7 @@ $('.search').click(function(){
       $('.input-group-btn').html(`<button class="btn btn-info" type="reset"><span class="icon-arrow-right"></span></button>`);
     } else {
       $('.input-group-btn').html(`<button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button>`);
-    } 
+    }
     cerrarSearch();
     $('.btn-info').click(function(){
       searchMovie();
@@ -129,7 +129,24 @@ function cerrarSearch(){
   });
 };
 /* fin buscador */
-
+/* boton ir arriba */
+$(document).ready(function(){
+  $('.ir-arriba').click(function(){
+    $('body, html').animate({
+      scrollTop: '0px'
+    }, 300);
+  });
+ 
+  $(window).scroll(function(){
+    if( $(this).scrollTop() > 0 ){
+      $('.ir-arriba').slideDown(300);
+    } else {
+      $('.ir-arriba').slideUp(300);
+    }
+  });
+ 
+});
+/* fin boton ir arriba */
 /*aparece login*/
  $('#loginmainnvb').click(function(){
   $(".pagini").hide()
@@ -181,20 +198,19 @@ function cerrarSearch(){
  $('#haveacc').click(function(){
   $('.face').addClass('hide')
   $('.flip').removeClass("hide");
-
- });
+});
 
 /* Initialize Firebase*/
 
- var config = {
-    apiKey: "AIzaSyDyxOeEibwG-ZpO1a96-Br8wXsqqdzso74",
-    authDomain: "shaped-buttress-188103.firebaseapp.com",
-    databaseURL: "https://shaped-buttress-188103.firebaseio.com",
-    projectId: "shaped-buttress-188103",
-    storageBucket: "shaped-buttress-188103.appspot.com",
-    messagingSenderId: "798835163345"
-  };
-  firebase.initializeApp(config);
+var config = {
+  apiKey: "AIzaSyDyxOeEibwG-ZpO1a96-Br8wXsqqdzso74",
+  authDomain: "shaped-buttress-188103.firebaseapp.com",
+  databaseURL: "https://shaped-buttress-188103.firebaseio.com",
+  projectId: "shaped-buttress-188103",
+  storageBucket: "shaped-buttress-188103.appspot.com",
+  messagingSenderId: "798835163345"
+};
+firebase.initializeApp(config);
 
 $("#signup").click(function(){
   var email = document.getElementById("email").value;
@@ -217,43 +233,40 @@ $("#signup").click(function(){
 $("#loginbtn").click(function(){
   var email2 = document.getElementById("email2").value;
   var contrasena2 = document.getElementById("contrasena2").value;
-  
-
-
-firebase.auth().signInWithEmailAndPassword(email2, contrasena2).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-  console.log(errorCode);
-  console.log(errorMessage);
-});
+  firebase.auth().signInWithEmailAndPassword(email2, contrasena2).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
 });
 
 
 function observador(){
   firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    console.log("existe usuario activo")
-    aparece(user);
-    // User is signed in.
-    var displayName = user.displayName;
-    var email = user.email;
-    console.log("**************");
-    console.log(user.emailVerified)
-    console.log("**************");
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
-    // ...
-  } else {
-    // User is signed out.
-    console.log("no existe usuario activo")
-    // ...
-  }
-});
+    if(user) {
+      console.log("existe usuario activo")
+      aparece(user);
+      // User is signed in.
+      var displayName = user.displayName;
+      var email = user.email;
+      console.log("**************");
+      console.log(user.emailVerified)
+      console.log("**************");
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
+      // ...
+    } else {
+      // User is signed out.
+      console.log("no existe usuario activo")
+      // ...
+    }
+  });
 }
 observador();
 
@@ -264,34 +277,33 @@ function aparece(user){
 alert("Ya estás conectado")
   $(".inicio").hide()
   }else{
-    alert("Verifica tu correo o no podrás loguear")
+  alert("Verifica tu correo o no podrás loguear")
 }
 
-/*el boton logout no quiere funcionar, ni siquiera para tirar un alert*/
-$(".outbtn").click(function(){
-  alert("hi")
-  firebase.auth().signOut()
-  .then(function(){
-    console.log("saliendo...")
-  })
-  .catch(function(error){
-console.log(error)
-})
-  $(".pagini").hide()
-});
+  /*el boton logout no quiere funcionar, ni siquiera para tirar un alert*/
+  $(".outbtn").click(function(){
+    alert("hi")
+    firebase.auth().signOut()
+    .then(function(){
+      console.log("saliendo...")
+    })
+    .catch(function(error){
+      console.log(error)
+    })
+    $(".pagini").hide()
+  });
 }
 
 function verificar(){
   var user = firebase.auth().currentUser;
 
-user.sendEmailVerification().then(function () {
+  user.sendEmailVerification().then(function () {
   // Email sent.
   alert("Enviando correo de verificación, una vez verificado su correo inicie sesión");
-
-}).catch(function(error) {
-  // An error happened.
-  alert("Ha ocurrido un error");
-});
+  }).catch(function(error) {
+    // An error happened.
+    alert("Ha ocurrido un error");
+  });
 }
 //fin de login logout
 
