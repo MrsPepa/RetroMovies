@@ -9,6 +9,11 @@ $(document).ready(function () {
     }
   }
   
+  //var count  = 0;
+  renderRandomMovies();
+  renderRandomMovies();
+  renderRandomMovies(); 
+
   
   //renderHorrorMovies();    
 
@@ -102,8 +107,6 @@ function renderError (error) {
   console.error(error);
 }
 
-
-
 function renderRandomMovies () {
   var movieID = randomID();
   var url = "http://www.omdbapi.com/?apikey=3a181f1c&i=tt"+movieID;
@@ -130,7 +133,12 @@ function randomID() {
 
 function randomMovies(response) {
     movieResult = response;
-    $('.jcarousel').find('ul').append('<li><img src="'+movieResult.Poster+'" alt="'+movieResult.Title+'"></li>');
-    console.log(movieResult);
-    console.log("Title: "+movieResult.Title+", ID: " +movieResult.Type+ ', ' +movieResult.imbdID);
+    if (movieResult.Poster == 'N/A' || movieResult.Poster == 'undefined' && movieResult.type == 'episode' && movie == "False") {
+      renderRandomMovies();
+    }
+    else {
+      $('.jcarousel').find('ul').append('<li><img src="'+movieResult.Poster+'" alt="'+movieResult.Title+'"></li>');
+      console.log(movieResult);
+      console.log("Title: "+movieResult.Title+", ID: " +movieResult.Type+ ', ' +movieResult.imbdID);
+    }  
   }
