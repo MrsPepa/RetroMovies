@@ -1,31 +1,70 @@
-$(function() {
+$(document).ready(function(){
 
-  $('a[href="#search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
-  event.preventDefault();
-  $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
-  $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
-  $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+});
+/*funcion buscador*/
+$('.search').click(function(){
+  $('.bootsnipp-search').html(`<div class="container"><form action="http://bootsnipp.com/search" method="GET" role="search"><div class="input-group"><input type="text" class="form-control" name="q" placeholder="Ingresa nombre de película aquí..."><span class="input-group-btn"><button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button></span></div></form></div>`);
+  cerrarSearch();
 
-    if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-    /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
-      setTimeout(function() {
-        $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
-      }, 100);
-    }
-  });
-
-  $(document).on('keyup', function(event) {
-    if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-      $('a[href="#toggle-search"]').trigger('click');
-    }
+  $('.form-control').keyup(function(){
+    var movie = $('.form-control').val();
+    if(movie.length > 0){
+      $('.input-group-btn').html(`<button class="btn btn-info" type="reset"><span class="icon-arrow-right"></span></button>`);
+    } else {
+      $('.input-group-btn').html(`<button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button>`);
+    } 
+    cerrarSearch();
+    $('.btn-info').click(function(){
+      searchMovie();
+      $('.input-group-btn').html(`<button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button>`)
+      $('.form-control').val('');
+      cerrarSearch();
+    });
   });
 });
-/*funcion para abrir buscador*/
-$('.animate').click(function(){
-  $('.closse').show();
-  $('.closse').removeClass('hide');
-  
-});
+/*
+* Función que se encarga de capturar el texto de busqueda
+* para luego realizar la consulta con ese parametro
+*/
+function searchMovie () {
+  var title = $('.form-control').val();
+  var url = "http://www.omdbapi.com/?apikey=3a181f1c&s="+title;
+  console.log(url);
+  $.ajax({
+    url: url,
+    success: renderMovies,
+    error: renderError
+  });
+}
+/*
+* Función que imprime el resultado de la   
+* consulta en index.html
+*/
+function renderMovies (response) {
+  console.log(response);
+  var movies = response.Search; // Retorna los array del resultado
+  $('.second').empty();
+
+  for(var i = 0; i < movies.length; i++) {
+    var movie = movies[i];
+    var title = movie.Title;
+    var imbdID = movie.imbdID;
+    var imgPoster = movie.Poster;
+    $('.second').append('<li>'+title+'</li>')
+  }
+}
+function renderError (error) {
+  console.error(error);
+}
+
+
+function cerrarSearch(){
+  $('.btn-danger').click(function(){
+    $('.bootsnipp-search').empty();
+  });
+};
+/* fin buscador */
+
 /*aparece login*/
  $('#loginmainnvb').click(function(){
   $(".pagini").hide()

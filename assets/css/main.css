@@ -23,6 +23,7 @@ body {
   font-family: 'Kite One', sans-serif;
   /*font-weight: bold;*/
   font-size: 18px;
+  border: none;
 }
 .navbar-default .navbar-nav>li>a {
   color: #006d72;
@@ -86,16 +87,21 @@ body {
   background-color: #006d72;
   color: #faf8ce;
   text-align: center;
+  border: none;
 }
 .third {
   width: 100%;
   height: 600px;
   text-align: center;
+  border: none;
 }
 .fifth {
   width: 100%;
-  height: 250px;
+  height: 110px;
+  padding-top: 3.4em;
   font-family: 'Kite One', sans-serif;
+  border: none;
+  text-align: center;
 }
 /* contenido third */
 .welcome {
@@ -119,6 +125,27 @@ span {
   font-family: 'Kite One', sans-serif;
 }
 
+/* estilo de boton */
+.btn-link {
+  font-size: 16px;
+}
+/* diseño de borde de contenedor */
+.tummy {
+  background-image: url(../img/wata1.png);
+  z-index: 10000;
+  width: 100%;
+  height: 14px;
+  border: none;
+  background-color: #006d72;
+}
+.tummy1 {
+  background-image: url(../img/wata2.png);
+  z-index: 10000;
+  width: 100%;
+  height: 14px;
+  border: none;
+  background-color: #faf8ce;
+}
 /*inicio login*/
 #myVideo {
     position: fixed;
