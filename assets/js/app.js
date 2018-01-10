@@ -28,6 +28,7 @@ $('.animate').click(function(){
 });
 /*aparece login*/
  $('#loginmainnvb').click(function(){
+  $(".pagini").hide()
   $('.contlog').append(`<section id="lab_video_slider" class="login-form-link">
 <video autoplay muted loop id="myVideo">
   <source src="assets/img/ipad.mp4" type="video/mp4">
@@ -76,6 +77,7 @@ $('.animate').click(function(){
  $('#haveacc').click(function(){
   $('.face').addClass('hide')
   $('.flip').removeClass("hide");
+
  });
 
 /* Initialize Firebase*/
@@ -162,7 +164,9 @@ alert("Ya estás conectado")
     alert("Verifica tu correo o no podrás loguear")
 }
 
-$(".logout").click(function(){
+/*el boton logout no quiere funcionar, ni siquiera para tirar un alert*/
+$(".outbtn").click(function(){
+  alert("hi")
   firebase.auth().signOut()
   .then(function(){
     console.log("saliendo...")
@@ -170,6 +174,7 @@ $(".logout").click(function(){
   .catch(function(error){
 console.log(error)
 })
+  $(".pagini").hide()
 });
 }
 
@@ -188,3 +193,4 @@ user.sendEmailVerification().then(function () {
 //fin de login logout
 
 });
+
