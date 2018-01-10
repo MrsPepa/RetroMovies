@@ -22,6 +22,8 @@ $(function() {
 });
 /*funcion para abrir buscador*/
 $('.animate').click(function(){
+  $('.closse').show();
+  $('.closse').removeClass('hide');
   
 });
 /*aparece login*/
