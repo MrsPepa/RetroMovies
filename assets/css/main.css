@@ -5,8 +5,9 @@ body {
 }
 
 
+
 /* estilos de navbar */
-.navbar {
+.navbar, .nav {
   background-color: #faf8ce;
   color: #006d72;
   font-family: 'Kite One', sans-serif;
@@ -21,6 +22,10 @@ body {
 .navbar-default .btn-link:focus, .navbar-default .btn-link:hover {
   color: teal;
   text-decoration: none;
+}
+/* estilos logotipo */
+.logotipo {
+  width: 55%;
 }
 /* estilos buscador */
 .navbar-bootsnipp .bootsnipp-search {

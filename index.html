@@ -1,70 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<meta charset="UTF-8">
-	<title>RetroMovies</title>
-  <link rel="icon" type="image/png" href="assets/img/prlogo-large.png" sizes="16x16"/>
-  <link rel="icon" type="image/png" href="assets/img/prlogo-large.png" sizes="32x32"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta charset="UTF-8">
+  <title>RetroMovies</title>
+  <link rel="icon" type="image/png" href="assets/img/logotipo.png" sizes="16x16"/>
+  <link rel="icon" type="image/png" href="assets/img/logotipo.png" sizes="32x32"/>
   <link href="https://fonts.googleapis.com/css?family=Kite+One|Oleo+Script" rel="stylesheet">
   <link rel="stylesheet" href="assets/fonts/icomoon/style.css">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <!-- inicio navbar -->
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Brand</a>
-      </div>
+  <div class="container-fluid first" style="padding-right: 0; padding-left: 0;">
+    <!-- inicio navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand hidden-md hidden-lg" href="#">Brand</a>
+        </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Películas</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Series <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Episodios</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Estrenos</a></li>
-        </ul>
-        
-        <ul class="nav navbar-nav navbar-right">
-          <li class="[ hidden-xs ]"><a href="[ #toggle-search ]" class="[ animate ]"><span class="icon-search"></span></a></li>
-          <!--<form class="navbar-form navbar-left">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Películas</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Series <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Episodios</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Estrenos</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-left">
+            <li><img src="assets/img/logotipo.png" alt="RetroMovies" class="logotipo"></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+
+            <li class="hidden-xs"><a href="#" class="animate"><span class="icon-search"></span></a></li>
+
+            <button type="button" id="loginmainnvb" class="btn btn-link navbar-btn">Log In</button>
+            <span class="icon-svg"></span>
+            <button type="button" class="btn btn-link navbar-btn">Log Out</button>
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+
+      <!--<div class="bootsnipp-search animate">
+        <div class="container">
+          <form action="http://bootsnipp.com/search" method="GET" role="search">
+            <div class="input-group">
+              <input type="text" class="form-control" name="q" placeholder="Search for snippets and hit enter">
+              <span class="input-group-btn">
+                <button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button>
+              </span>
             </div>
-            <button type="submit" class="btn btn-default">Buscar</button>
-          </form>-->
-          <button type="button" id="loginmainnvb" class="btn btn-link navbar-btn">Log in</button>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    <div class="[ bootsnipp-search animate ]"><!--buscador-->
-      <div class="[ container ]">
-        <form action="http://bootsnipp.com/search" method="GET" role="search">
-          <div class="[ input-group ]">
-            <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets and hit enter">
-            <span class="[ input-group-btn ]">
-              <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
-            </span>
-          </div>
-        </form>
-      </div>
-    </div>
-  </nav><!--/nav-->
-<!-- fin navbar -->
+          </form>
+        </div>
+      </div>-->
+
+    </nav>
+  <!-- fin navbar -->
+  </div>
+  <!--fin container first-->
 
   <!-- inicio login -->
 <div class="contlog"></div>
