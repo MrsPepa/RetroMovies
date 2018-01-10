@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 /*funcion buscador*/
 $('.search').click(function(){
-  $('.bootsnipp-search').html(`<div class="container"><form action="http://bootsnipp.com/search" method="GET" role="search"><div class="input-group"><input type="text" class="form-control" name="q" placeholder="Ingresa nombre de película aquí..."><span class="input-group-btn"><button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button></span></div></form></div>`);
+  $('.bootsnipp-search').html(`<div class="container"><form><div class="input-group"><input type="text" class="form-control" name="q" placeholder="Ingresa nombre de película aquí..."><span class="input-group-btn"><button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button></span></div></form></div>`);
   cerrarSearch();
 
   $('.form-control').keyup(function(){
