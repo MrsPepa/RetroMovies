@@ -1,4 +1,20 @@
 $(document).ready(function(){
+  $("#link-top-movies").click(function() {
+    var offset = -10; //Offset of 20px
+
+    $('html, body').animate({
+        scrollTop: $("#top-movies").offset().top + offset
+    }, 1500);
+  });
+
+  $("#link-episode").click(function() {
+    var offset = -10; //Offset of 20px
+
+    $('html, body').animate({
+        scrollTop: $("#episode").offset().top + offset
+    }, 1500);
+  });
+
   // Carousel
   $(function() {
         var jcarousel = $('.jcarousel');
