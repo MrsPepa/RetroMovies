@@ -1,15 +1,6 @@
 $(document).ready(function () {
   $('#search-btn').click(searchMovie);
-  var count = 0;
-  displayMovies();
-  function displayMovies() {
-    if (count <= 5) {
-    renderRandomMovies();
-    count++;
-    }
-  }
-  
-  //var count  = 0;
+  renderRandomMovies();
   renderRandomMovies();
   renderRandomMovies();
   renderRandomMovies(); 
