@@ -159,14 +159,13 @@ h4 {
   z-index: 10000;
   border-radius: 50%;
 }
-/*inicio login*/
 #myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -2;
+  position: fixed;
+  left: -380px;
+  min-width: 230%;
+  min-height: 150%;
+  z-index: -2;
+  top: -40px;
 }
 .loginBox
 {
@@ -719,3 +718,4 @@ a:hover {
   content: "\e9da";
   padding-left: 20px;
   }
+
