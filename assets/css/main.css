@@ -170,6 +170,10 @@ h4 {
   min-height: 150%;
   z-index: -2;
   top: -40px;
+  height: 108vh;
+}
+#submit_login {
+  margin-left: 1em;
 }
 .loginBox
 {
