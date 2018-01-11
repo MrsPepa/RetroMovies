@@ -133,3 +133,4 @@ function randomMovies(response) {
       console.log("Title: "+movieResult.Title+", ID: " +movieResult.Type+ ', ' +movieResult.imbdID);
     }  
   }
+/* api bd */
