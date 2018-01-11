@@ -15,7 +15,7 @@ body {
   margin-top: 1.4em;
 }
 .navbar-left {
-  margin-left: 13%;
+  margin-left: 12%;
 }
 .navbar, .nav {
   background-color: #faf8ce;
@@ -147,15 +147,15 @@ h4 {
 }
 /* estilo boton ir arriba */
 .ir-arriba {
-  display:none;
-  padding:20px;
-  background:#024959;
-  font-size:20px;
-  color:#faf8ce;
-  cursor:pointer;
+  display: none;
+  padding: 20px;
+  background: #024959;
+  font-size: 20px;
+  color: #faf8ce;
+  cursor: pointer;
   position: fixed;
-  bottom:20px;
-  right:20px;
+  bottom: 20px;
+  right: 20px;
   z-index: 10000;
   border-radius: 50%;
 }
@@ -249,39 +249,39 @@ h4 {
   padding-left: 10px;
 }
 .g {
-    background: #dd4b39;
-    padding: .4em 1em;
-    border: 2px solid #dd4b39;
+  background: #dd4b39;
+  padding: .4em 1em;
+  border: 2px solid #dd4b39;
 }
 /*login fin*/
 
 /* Inicio Carousel */
 .jcarousel-wrapper {
-    margin: 20px auto;
-    position: relative;
-    border: 10px solid #fff;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 2px #999;
-    -moz-box-shadow: 0 0 2px #999;
-    box-shadow: 0 0 2px #999;
+  margin: 20px auto;
+  position: relative;
+  border: 10px solid #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 2px #999;
+  -moz-box-shadow: 0 0 2px #999;
+  box-shadow: 0 0 2px #999;
 }
 
 /** Carousel **/
 
 .jcarousel {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
 .jcarousel ul {
-    width: 20000em;
-    position: relative;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  width: 20000em;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .jcarousel li {
@@ -394,7 +394,7 @@ h4 {
 /* Medias */
 @media(min-width: 1200px) {
   .logotipo {
-    margin-left: 39%;
+    margin-left: 38%;
   }
 }
 @media(max-width: 768px) {
