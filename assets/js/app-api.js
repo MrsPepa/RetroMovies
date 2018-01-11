@@ -1,15 +1,13 @@
 $(document).ready(function () {
   $('#search-btn').click(searchMovie);
-  renderRandomMovies();
-  renderRandomMovies();
-  renderRandomMovies();
-  renderRandomMovies();
+  renderRandomMovies(carousel)
 
   
   //renderHorrorMovies();
 
   // Carousel
-  $(function() {
+  function carousel (){
+    console.log('carousel');
         var jcarousel = $('.jcarousel');
 
         jcarousel
@@ -56,7 +54,7 @@ $(document).ready(function () {
                     return '<a href="#' + page + '">' + page + '</a>';
                 }
             });
-    });
+    };
   // Fin Carousel
 })
 
@@ -124,7 +122,7 @@ function randomID() {
 
 function randomMovies(response) {
     movieResult = response;
-    if (movieResult.Poster == 'N/A' || movieResult.Poster == 'undefined' && movieResult.type == 'episode' && movie == "False") {
+    if (movieResult.Poster == 'N/A' || movieResult.Poster == 'undefined' && movieResult.type == 'episode' || movieResult.Title == undefined) {
       renderRandomMovies();
     }
     else {

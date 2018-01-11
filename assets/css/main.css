@@ -159,6 +159,7 @@ h4 {
   z-index: 10000;
   border-radius: 50%;
 }
+
 /*inicio login*/
 .modal-backdrop.in {
   background: url('../img/ipad.mp4')
@@ -174,6 +175,21 @@ h4 {
 }
 #submit_login {
   margin-left: 1em;
+}
+
+/* Modal content Register Login*/
+  .modal-bg {
+    background-color: rgba(0,0,0,.5);
+  }
+
+#myVideo {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2;
 }
 .loginBox
 {
@@ -727,3 +743,7 @@ a:hover {
   padding-left: 20px;
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Modificaciones menores de css
