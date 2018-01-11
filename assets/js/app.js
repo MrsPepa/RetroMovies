@@ -11,7 +11,6 @@ $(document).ready(function(){
     firebase.initializeApp(config);
 
   var imgPost = null;
-  //var database = firebase.database();
   var userConnect = null;
 
   $("#link-top-movies").click(function() {
@@ -53,31 +52,19 @@ $(document).ready(function(){
     }
   });
 
-  // Firebase: Verificación de Usuario
-  function verify() {
-    var user = firebase.auth().currentUser;
-    user.sendEmailVerification().then(function() {
-      // Email sent.
-    }).catch(function(error) {
-      // An error happened.
-      console.log(error);
-      });
-    }
-
-  // Firebase: Olvido de Contraseña 
-  $('#forgetpwd').click(function () {
-      var auth = firebase.auth();
-      var emailAddress = prompt('Ingresa tu correo');
-      auth.sendPasswordResetEmail(emailAddress).then(function() {
-      // Email sent.
-      }).catch(function(error) {
-    // An error happened.
+  $('#submit_login').click( function () {
+    var emailLogin = $('#email_login').val();
+    var passwordLogin = $('#pwd_login').val();
+    firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
     });
   });
 
-  // Firebase: Autenticación
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if(user) {
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
@@ -89,25 +76,52 @@ $(document).ready(function(){
       console.log(user);
 
       if (emailVerified) {
-        // Si el usuario esta verificado, puede acceder al contenido
         showContentUsers();
       }
+
+      function showContentUsers() {
+        // Cambio Menu Principal
+        $('#menu-user').html('<li class=""><a href="#" class="search"><span class="icon-search"></span> Buscar</a></li><li id="show-profile"><a href="#"><span class="icon-user"></span> Cuenta</a></li><li><button type="button" class="btn btn-link navbar-btn" id="close_session">Cerrar Sesión</button></li>');
+        search();
+        // Para ver perfil de usuario
+        $('#show-profile').click(function () {
+          console.log('Contenido aqui');
+         // Insertar aqui contenido perfil
+        });
+      }
+      $('#close_session').click( function () {
+        console.log('Cerraste la sesion');
+        firebase.auth().signOut().then(function() {
+          // Sign-out successful.
+          location.reload();
+          }).catch(function(error) {
+          // An error happened.
+        });
+      });
     }
   });
 
-  function showContentUsers() {
-    // Cambio Menu Principal
-    $('#menu-user').html('<li class=""><a href="#" class="search"><span class="icon-search"></span> Buscar</a></li><li id="show-profile"><a href="#"><span class="icon-user"></span> Cuenta</a></li><li><button type="button" class="btn btn-link navbar-btn">Cerrar Sesión</button></li>');
-      search();
-    // Para ver perfil de usuario
-    $('#show-profile').click(function () {
-      // Insertar aqui contenido perfil
-    });
-  }   
-// Fin Firebase
-  /* 
-  * Funcion Carousel de Fotos
-  */
+  function verify() {
+    var user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+      console.log(error);
+      });
+  }
+
+$('#forgetpwd').click(function () {
+    var auth = firebase.auth();
+    var emailAddress = prompt('Ingresa tu correo');
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+    // Email sent.
+    }).catch(function(error) {
+  // An error happened.
+   });
+  });
+  // Funcion Carousel de Fotos
+  
   $(function() {
         var jcarousel = $('.jcarousel');
 
