@@ -1,4 +1,19 @@
 $(document).ready(function(){
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBdVN9DkdgZOtlpnymlClTD8sC7I5WIHPI",
+    authDomain: "retromovies-abd06.firebaseapp.com",
+    databaseURL: "https://retromovies-abd06.firebaseio.com",
+    projectId: "retromovies-abd06",
+    storageBucket: "retromovies-abd06.appspot.com",
+    messagingSenderId: "431147430642"
+  };
+    firebase.initializeApp(config);
+
+  var imgPost = null;
+  //var database = firebase.database();
+  var userConnect = null;
+
   $("#link-top-movies").click(function() {
     var offset = -10; //Offset of 20px
 
@@ -15,7 +30,95 @@ $(document).ready(function(){
     }, 1500);
   });
 
-  // Carousel
+
+  // FIREBASE
+  $('#submit_register').click(function () {
+    var email = $('#email').val();
+    var password = $('#password').val();
+    if (password.length >= 6) {
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(function () {
+          verify();
+      })
+      .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+    $('#modalRegister').html('<div class="modal-dialog"><!-- Modal content--><div class="modal-content register-form"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title"><h5 class="text-uppercase bold text-center">Registro Completado</h5></div><div class="content"><div class="modal-body"><!-- Mensaje Registro Exitoso --><h4>Su registro se ha realizado con éxito. Recibirá un correo de verificación.</h4><button type="button" data-dismiss="modal" class="btn btn-primary btn-send text-uppercase">Cerrar</button></form></div></div></div></div>');
+    }
+    else {
+      alert('Email: Ingrese un correo válido. \nContraseña: debe tener al menos 6 caracteres.');
+    }
+  });
+
+  // Firebase: Verificación de Usuario
+  function verify() {
+    var user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+      console.log(error);
+      });
+    }
+
+  // Firebase: Olvido de Contraseña 
+  $('#forgetpwd').click(function () {
+      var auth = firebase.auth();
+      var emailAddress = prompt('Ingresa tu correo');
+      auth.sendPasswordResetEmail(emailAddress).then(function() {
+      // Email sent.
+      }).catch(function(error) {
+    // An error happened.
+    });
+  });
+
+  // Firebase: Autenticación
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
+      console.log(user);
+      // Guardar info del usuario a la BD
+
+      //userConnect = database.ref("/user");
+
+      function addUserBD (uid,name) {
+        var connected = userConnect.push({
+          uid:uid,
+          name:name
+        });
+      }
+
+      if (emailVerified) {
+        // Si el usuario esta verificado, puede acceder al contenido
+        showContentUsers();
+        addUserBD (user.uid,user.displayName);
+      }
+    }
+  });
+
+  function showContentUsers() {
+    // Cambio Menu Principal
+    $('#menu-user').html('<li class=""><a href="#" class="search"><span class="icon-search"></span> Buscar</a></li><li id="show-profile"><a href="#"><span class="icon-user"></span> Cuenta</a></li><li><button type="button" class="btn btn-link navbar-btn">Cerrar Sesión</button></li>');
+      search();
+    // Para ver perfil de usuario
+    $('#show-profile').click(function () {
+      // Insertar aqui contenido perfil
+    });
+  }   
+// Fin Firebase
+  /* 
+  * Funcion Carousel de Fotos
+  */
   $(function() {
         var jcarousel = $('.jcarousel');
 
@@ -67,7 +170,9 @@ $(document).ready(function(){
   // Fin Carousel
 });
 /*funcion buscador*/
-$('.search').click(function(){
+search();
+function search() {
+  $('.search').click(function(){
   $('.bootsnipp-search').html(`<div class="container"><form><div class="input-group"><input type="text" class="form-control" name="q" placeholder="Ingresa nombre de película aquí..."><span class="input-group-btn"><button class="btn btn-danger" type="reset"><span class="icon-cross"></span></button></span></div></form></div>`);
   cerrarSearch();
 
@@ -87,6 +192,9 @@ $('.search').click(function(){
     });
   });
 });
+}
+
+
 /*
 * Función que se encarga de capturar el texto de busqueda
 * para luego realizar la consulta con ese parametro
