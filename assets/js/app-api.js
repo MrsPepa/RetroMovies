@@ -1,40 +1,34 @@
 $(document).ready(function () {
   $('#search-btn').click(searchMovie);
-  /*renderRandomMovies();
   renderRandomMovies();
   renderRandomMovies();
-  renderRandomMovies();*/
+  renderRandomMovies();
+  renderRandomMovies();
 
-  var i = 0;
-  while(i <= 3){
-    i++;
-    console.log('funcionando...');
-    renderRandomMovies();
-  }
   
   //renderHorrorMovies();
 
   // Carousel
   $(function() {
-    var jcarousel = $('.jcarousel');
+        var jcarousel = $('.jcarousel');
 
-    jcarousel
-      .on('jcarousel:reload jcarousel:create', function () {
-          var width = jcarousel.innerWidth();
+        jcarousel
+            .on('jcarousel:reload jcarousel:create', function () {
+                var width = jcarousel.innerWidth();
 
-          if (width >= 900) {
-            width = width / 4;
-          } else if (width >= 600) {
-            width = width / 3;
-          } else if (width >= 400) {
-            width = width / 2;
-          }
+                if (width >= 900) {
+                    width = width / 4;
+                } else if (width >= 600) {
+                    width = width / 3;
+                } else if (width >= 400) {
+                    width = width / 2;
+                }
 
-          jcarousel.jcarousel('items').css('width', width + 'px');
-          })
-          .jcarousel({
-            wrap: 'circular'
-          });
+                jcarousel.jcarousel('items').css('width', width + 'px');
+            })
+            .jcarousel({
+                wrap: 'circular'
+            });
 
         $('.jcarousel-control-prev')
             .jcarouselControl({
@@ -67,7 +61,7 @@ $(document).ready(function () {
 })
 
 /*
-* Función que se encarga de capturar el texto de busqueda
+* Función que se encarga de capturar el texto de busqueda  
 * para luego realizar la consulta con ese parametro
 */
 function searchMovie () {
@@ -130,7 +124,7 @@ function randomID() {
 
 function randomMovies(response) {
     movieResult = response;
-    if (movieResult.Poster == 'N/A' || movieResult.Poster == 'undefined' && movieResult.type == 'episode' || movieResult == "False") {
+    if (movieResult.Poster == 'N/A' || movieResult.Poster == 'undefined' && movieResult.type == 'episode' && movie == "False") {
       renderRandomMovies();
     }
     else {
