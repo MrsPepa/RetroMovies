@@ -405,34 +405,40 @@ h4 {
 }
 
 /*user profile*/
-
+.userprofile{
+  background-color: #006D72;
+  height: 200px;
+}
 .userprofile img.userimage-lg{
     z-index: 0;
     width: 100%;  
     margin-bottom: 10px;
     height: 500px;
+    background-color: red;
+    height: 200px;
 }
 
 .userimage-profile
 {
-    margin: -90px 10px 0px 50px;
-    z-index: 9;
-    width: 20%; 
+  margin: -90px 10px 0px 50px;
+  z-index: 9;
+  width: 20%;
+  margin-left: 6%;
 }
 
 @media (max-width:768px)
 {
-    
 .userprofile-text>h1{
-    font-weight: 700;
-    font-size:16px;
+  font-weight: 700;
+  font-size:16px;
 }
 
 .userimage-profile
 {
-    margin: -45px 10px 0px 25px;
-    z-index: 9;
-    width: 20%; 
+  margin: -45px 10px 0px 25px;
+  z-index: 9;
+  width: 20%;
+  border-radius: 50%;
 }
 }
 .userbackimg {
@@ -558,7 +564,7 @@ a:hover {
 .movie-header {
   padding: 0;
   margin: 0;
-  height: 400px;
+  height: 500px;
   width: 100%;
   display: block;
   border-top-left-radius: 10px;
@@ -580,7 +586,21 @@ a:hover {
   background-size: cover;
   background-position: 100% 100%;
 }
-
+.backf {
+  background: url("../img/mov04.jpg");
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.goonies {
+  background: url("../img/mov05.jpg");
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.little {
+  background: url("../img/mov06.jpg");
+  background-size: cover;
+  background-position: 100% 100%;
+}
 .bladeRunner2049 {
   background: url("http://cdn.collider.com/wp-content/uploads/2017/05/blade-runner-2049-poster-ryan-gosling.jpeg");
   background-size: cover;
@@ -694,3 +714,8 @@ a:hover {
   padding-top: 40px;
   font-weight: 400;
 }
+
+.icon-heart:before {
+  content: "\e9da";
+  padding-left: 20px;
+  }
