@@ -170,12 +170,24 @@ h4 {
   height: 108vh;
 }
 #submit_login {
+<<<<<<< HEAD
   margin-left: -3em;
 
 }
 .modal-dialog{
   padding-left: 13%;
 }
+=======
+  margin-left: 1em;
+}
+
+/* Modal content Register Login*/
+  .modal-bg {
+    background-color: rgba(0,0,0,.5);
+  }
+
+
+>>>>>>> modal video funcionando
 .loginBox
 {
   position: absolute;
