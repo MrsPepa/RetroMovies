@@ -85,12 +85,13 @@ $(document).ready(function(){
         search();
         // Para ver perfil de usuario
         $('#show-profile').click(function () {
-          console.log('Contenido aqui');
+          window.location.href="indexprofile.html"
          // Insertar aqui contenido perfil
         });
+
       }
       $('#close_session').click( function () {
-        console.log('Cerraste la sesion');
+        window.location.href="index.html"
         firebase.auth().signOut().then(function() {
           // Sign-out successful.
           location.reload();
@@ -309,3 +310,11 @@ var topMovies = [
     id: 0054215
   }
 ];
+
+$('.logotipo').click(function () {
+  window.location.href="index.html"
+});
+
+$('.logoMovil').click(function () {
+  window.location.href="index.html"
+});

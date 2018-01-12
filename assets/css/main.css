@@ -38,6 +38,7 @@ body {
 /* estilos logotipo */
 .logotipo {
   width: 55%;
+  cursor:pointer;
 }
 .logoMovil {
   width: 10em;

@@ -7,6 +7,22 @@
   <link rel="icon" type="image/png" href="assets/img/logotipo.png" sizes="16x16"/>
   <link rel="icon" type="image/png" href="assets/img/logotipo.png" sizes="32x32"/>
   <link href="https://fonts.googleapis.com/css?family=Kite+One|Oleo+Script" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBdVN9DkdgZOtlpnymlClTD8sC7I5WIHPI",
+    authDomain: "retromovies-abd06.firebaseapp.com",
+    databaseURL: "https://retromovies-abd06.firebaseio.com",
+    projectId: "retromovies-abd06",
+    storageBucket: "retromovies-abd06.appspot.com",
+    messagingSenderId: "431147430642"
+  };
+    firebase.initializeApp(config);
+  </script>
   <link rel="stylesheet" href="assets/fonts/icomoon/style.css">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -37,11 +53,12 @@
           <ul class="nav navbar-nav navbar-left hidden-xs hidden-sm">
             <li class="navbar-logo"><img src="assets/img/logotipo.png" alt="RetroMovies" class="logotipo"></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class=""><a href="#" class="search"><span class="icon-search"></span></a></li>
+          <ul class="nav navbar-nav navbar-right" id="menu-user">
+            <li class="hidden-sm"><a href="#" class="search"><span class="icon-search"></span> Buscar</a></li>
 
-            <li><a href="#"><span class="icon-user"></span> Cuenta</a></li>
-            <button type="button" id="loginmainnvb" class="btn btn-link navbar-btn">Iniciar Sesión</button>
+            <!-- <li><a href="#"><span class="icon-user"></span> Cuenta</a></li> -->
+            <li><button type="button" data-toggle="modal" data-target="#modalLogin" class="btn btn-link navbar-btn">Iniciar Sesión</button></li>
+            <li><button type="button" data-toggle="modal" data-target="#modalRegister" class="btn btn-link navbar-btn">Regístrate</button></li>
             <button type="button" class="btn btn-link navbar-btn hide">Cerrar Sesión</button>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -51,11 +68,10 @@
       </div>
       <!--seccion curva-->
       <div class="tummy">
-        
+
       </div>
-  </nav>
-    
-</div>
+    </nav>
+  <!-- fin navbar -->
 
 <!-- inicio user -->
 <div class="container-fluid userbackimg">
@@ -251,7 +267,7 @@
 </div><!--container-->
 <!-- end images -->
 <!-- fin user -->
-<!--inicio container fifth-->
+  <!--inicio footer-->
   <div class="container-fluid fifth">
     <div class="row">
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -269,7 +285,7 @@
     </div>
   </div>
   </div>
-  <!--fin container fifth-->
+  <!--fin footer-->
 
 <!-- scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
