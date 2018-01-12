@@ -4,8 +4,6 @@ body {
   color: #006D72;
 }
 
-
-
 /* estilos de navbar */
 .navbar {
   margin-bottom: 0;
@@ -309,6 +307,9 @@ h4 {
   background: #dd4b39;
   padding: .4em 1em;
   border: 2px solid #dd4b39;
+}
+.phrase{
+  padding-left: 28%;
 }
 /*login fin*/
 
@@ -791,3 +792,22 @@ a:hover {
   padding-left: 20px;
   }
 
+@media (max-width: 768px){
+.userimage-profile {
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 50%;
+    border-radius: 50%;
+}
+.userprofile {
+    background-color: #006D72;
+    height: 140px;
+}
+.useraboutcont {
+    display: inline-block;
+    background-color: #fff;
+    border: 4px solid #fff;
+    padding: 2em;
+    border-radius: 5px;
+    top: 30px;
+}
