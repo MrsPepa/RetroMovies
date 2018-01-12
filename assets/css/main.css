@@ -83,7 +83,7 @@ body {
 .second,
 .fourth {
   width: 100%;
-  height: 600px;
+  height: auto;
   background-color: #006d72;
   color: #faf8ce;
   text-align: center;
@@ -110,9 +110,24 @@ body {
 /* contenido third */
 .welcome {
   width: 75%;
-  height: 390px;
-  margin-top: 7em;
-  background-image: url(../img/prueba-foto.jpg);
+  height: auto;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  padding-top: 3em;
+  border-radius: 10px;
+  background-image: url(../img/movie-foto.jpg);
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.75);
+}
+.welcome2 {
+  padding: 3em;
+}
+.welcome2 h2 {
+  font-family: 'Oleo Script', cursive;
 }
 h1 {
   font-size: 36px;
@@ -121,6 +136,10 @@ h1 {
 h2,
 h3,
 h4 {
+  font-family: 'Kite One', cursive;
+}
+.welcome p {
+  font-size: 18px;
   font-family: 'Kite One', cursive;
 }
 
@@ -396,7 +415,7 @@ h4 {
 
 /* Fin Carousel */
 
-/* Inicio Estilo Resultados Buscador */ 
+/* Inicio Estilo Resultados Buscador */
 
 .search-results {
   width: 80%;
@@ -428,7 +447,7 @@ h4 {
 }
 .userprofile img.userimage-lg{
     z-index: 0;
-    width: 100%;  
+    width: 100%;
     margin-bottom: 10px;
     height: 500px;
     background-color: red;
@@ -738,4 +757,7 @@ a:hover {
   content: "\e9da";
   padding-left: 20px;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> cambios bienvenida
