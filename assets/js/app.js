@@ -233,7 +233,7 @@ function renderMovies (response) {
       var convertTitle = title.split(' ').join('+');
       console.log(moviesArray);
     $.ajax({
-      url: "http://www.omdbapi.com/?apikey=3a181f1c&t="+convertTitle,
+      url: "https://www.omdbapi.com/?apikey=3a181f1c&t="+convertTitle,
       async: false,
       success: modalDetailsByTitle
     });
