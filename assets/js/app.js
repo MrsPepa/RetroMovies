@@ -245,11 +245,12 @@ function renderMovies (response) {
     function modalDetailsByTitle (result) {
       console.log(result);
       var movieDetails = result;
-<<<<<<< HEAD
+
       $('.modal-search-results').append('<!-- Modal --><div id="modalInfo'+ j++ +'" class="modal fade" role="dialog"><div class="modal-dialog modal-lg"><!-- Modal content--><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">'+movieDetails.Title+'</h4></div><div class="modal-body"><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"><div><img src="'+movieDetails.Poster+'" class="img-responsive"></div></div><div class="col-xs-12 col-sm-12 col-md-8 col-lg-8"><p>Director: '+movieDetails.Director+'</p><p>Género: '+movieDetails.Genre+'</p><p>Reparto: '+movieDetails.Actors+'</p><p>Trama: '+movieDetails.Plot+'</p><div class="row"><div class="col-xs-6 col-md-6"><p>Duración: '+movieDetails.Runtime+'</p></div><div class="col-xs-6 col-md-6"><p>País: '+movieDetails.Country+'</p></div></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>'); 
-=======
+
       $('.modal-search-results').append('<!-- Modal --><div id="modalInfo'+ j++ +'" class="modal fade" role="dialog"><div class="modal-dialog"><!-- Modal content--><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">'+movieDetails.Title+'</h4></div><div class="modal-body"><p>Some text in the modal.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>');
->>>>>>> detalles finales
+
+
     }
   }
 }
