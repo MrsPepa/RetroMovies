@@ -13,6 +13,8 @@ $(document).ready(function(){
   var imgPost = null;
   var userConnect = null;
 
+  renderTopMovies();
+
   $("#link-top-movies").click(function() {
     var offset = -10; //Offset of 20px
 
@@ -85,11 +87,10 @@ $(document).ready(function(){
         search();
         // Para ver perfil de usuario
         $('#show-profile').click(function () {
-          window.location.href="indexprofile.html"
-         // Insertar aqui contenido perfil
+         $('#global-content').html('<!-- inicio user --><div class="container-fluid userbackimg"><div class="userprofile"></div><img align="left" class="userimage-profile profu thumbnail" src="assets/img/yoda.jpg" alt="Profile image example" style="border-radius:50%;/><div class="fb-profile-text"><div><br><h1>Gizmo</h1><p class="phrase">Old´s cool</p><div class="useraboutcont col-sm-offset-4 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-1 col-lg-6"><p class="aboutuser">Estudiante de enfermería, fan de las películas y series de los 80.</p></div></div></div></div><!-- images --><h1 id="fav-movies">Películas Favoritas</h1><div class="container imgconta"><div class="movie-card"><div class="movie-header star"><div class="header-icon-container"></div></div><!--movie-header--><div class="movie-content"><div class="movie-content-header"><a href="#"><h3 class="movie-title">Star Wars, episodio VI</h3></a><span class="heart icon-heart"></span></div><div class="movie-info"><div class="info-section"><label>Año</label><span>1983</span></div><!--year--><div class="info-section"><label>Género</label><span>Ciencia fición</span></div><!--genre--><div class="info-section"><label>Duración</label><span>133 min</span></div><!--last--></div></div><!--movie-content--></div><!--movie-card--><div class="movie-card"><div class="movie-header gremlins"><div class="header-icon-container"></div></div><!--movie-header--><div class="movie-content"><div class="movie-content-header"><a href="#"><h3 class="movie-title">Gremlins</h3></a><span class="heart icon-heart"></span></div><div class="movie-info"><div class="info-section"><label>Año</label><span>1984</span></div><!--year--><div class="info-section"><label>Género</label><span>Terror, fantasía, comedia</span></div><!--genre--><div class="info-section"><label>Duración</label><span>106 min</span></div><!--last--></div></div><!--movie-content--></div><!--movie-card--><div class="movie-card"><div class="movie-header nevere"><div class="header-icon-container"></div></div><!--movie-header--><div class="movie-content"><div class="movie-content-header"><a href="#"><h3 class="movie-title">La historia sin fin</h3></a><span class="heart icon-heart"></span></div><div class="movie-info"><div class="info-section"><label>Año</label><span>1984</span></div><!--year--><div class="info-section"><label>Género</label><span>Aventuras</span></div><!--genre--><div class="info-section"><label>Duración</label><span>102 min</span></div><!--last--></div></div><!--movie-content--></div><!--movie-card--><div class="movie-card"><div class="movie-header backf"><div class="header-icon-container"></div></div><!--movie-header--><div class="movie-content"><div class="movie-content-header"><a href="#"><h3 class="movie-title">Volver al futuro</h3></a><span class="heart icon-heart"></span></div><div class="movie-info"><div class="info-section"><label>Año</label><span>1985</span></div><!--year--><div class="info-section"><label>Género</label><span>Ciencia ficción, aventuras, comedia</span></div><!--genre--><div class="info-section"><label>Duración</label><span>116 min</span></div><!--last--></div></div><!--movie-content--></div><!--movie-card--><div class="movie-card"><div class="movie-header goonies"><div class="header-icon-container"></div></div><!--movie-header--><div class="movie-content"><div class="movie-content-header"><a href="#"><h3 class="movie-title">Los Goonies</h3></a><span class="heart icon-heart"></span></div><div class="movie-info"><div class="info-section"><label>Año</label><span>1985</span></div><!--year--><div class="info-section"><label>Género</label><span>Aventuras, comedia</span></div><!--genre--><div class="info-section"><label>Duración</label><span>114 min</span></div><!--last--></div></div><!--movie-content--></div><!--movie-card--><div class="movie-card"><div class="movie-header little"><div class="header-icon-container"></div></div><!--movie-header--><div class="movie-content"><div class="movie-content-header"><a href="#"><h3 class="movie-title">La tiendita del horror</h3></a><span class="heart icon-heart"></span></div><div class="movie-info"><div class="info-section"><label>Año</label><span>1986</span></div><!--year--><div class="info-section"><label>Género</label><span>Musical, Comedia, Terror</span></div><!--genre--><div class="info-section"><label>Duración</label><span>94 min</span></div><!--last--></div></div><!--movie-content--></div><!--movie-card--></div><!--container--><!-- end images --><!-- fin user -->');
         });
-
       }
+
       $('#close_session').click( function () {
         window.location.href="index.html"
         firebase.auth().signOut().then(function() {
@@ -232,13 +233,13 @@ function renderMovies (response) {
       var convertTitle = title.split(' ').join('+');
     $.ajax({
       url: "https://www.omdbapi.com/?apikey=3a181f1c&t="+convertTitle,
-      //async: false,
+      async: false,
       success: modalDetailsByTitle
     });
     function modalDetailsByTitle (result) {
       console.log(result);
       var movieDetails = result;
-      $('.modal-search-results').append('<!-- Modal --><div id="modalInfo'+i+'" class="modal fade" role="dialog"><div class="modal-dialog"><!-- Modal content--><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">'+movieDetails.Title+'</h4></div><div class="modal-body"><p>Some text in the modal.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>'); 
+      $('.modal-search-results').append('<!-- Modal --><div id="modalInfo'+ j++ +'" class="modal fade" role="dialog"><div class="modal-dialog modal-lg"><!-- Modal content--><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">'+movieDetails.Title+'</h4></div><div class="modal-body"><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"><div><img src="'+movieDetails.Poster+'" class="img-responsive"></div></div><div class="col-xs-12 col-sm-12 col-md-8 col-lg-8"><p>Director: '+movieDetails.Director+'</p><p>Género: '+movieDetails.Genre+'</p><p>Reparto: '+movieDetails.Actors+'</p><p>Trama: '+movieDetails.Plot+'</p><div class="row"><div class="col-xs-6 col-md-6"><p>Duración: '+movieDetails.Runtime+'</p></div><div class="col-xs-6 col-md-6"><p>País: '+movieDetails.Country+'</p></div></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>'); 
     }
   }
 }
@@ -273,40 +274,26 @@ $(document).ready(function(){
 });
 /* fin boton ir arriba */
 
+// Funcion para imprimir peliculas destacadas
+function renderTopMovies () {
+  var topMovies = ['The Godfather', 'The Godfather: Part II', '12 Angry Men', 'The Good, the Bad and the Ugly', 'Star Wars: Episode V - The Empire Strikes Back', "One Flew Over the Cuckoo's Nest", 'Seven Samurai', 'Star Wars: Episode IV - A New Hope', "It's a Wonderful Life", 'Psycho' ];
 
-var topMovies = [
-
-  {
-    id: 0068646
-  },
-  {
-    id: 0071562
-  },
-  {
-    id: 0050083
-  },
-  {
-    id: 0060196
-  },
-  {
-    id: 0080684
-  },
-  {
-    id: 0073486
-  },
-  {
-    id: 0047478
-  },
-  {
-    id: 0076759
-  },
-  {
-    id: 0038650
-  },
-  {
-    id: 0054215
+  for (var k = 0; k < topMovies.length; k++) {
+    var movieTitle = topMovies[k];
+    var convertTitle = movieTitle.split(' ').join('+');
+    var url = "https://www.omdbapi.com/?apikey=3a181f1c&t="+convertTitle;
+    console.log(url);
+    $.ajax ({
+      url: url,
+      success: renderMoviesCarousel
+    });
+    function renderMoviesCarousel (movieResult) {
+      $('.jcarousel').find('ul').append('<li><img src="'+movieResult.Poster+'" title="'+movieResult.Title+'"></li>');
+    }
   }
-];
+
+} 
+
 
 $('.logotipo').click(function () {
   window.location.href="index.html"

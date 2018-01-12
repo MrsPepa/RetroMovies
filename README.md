@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Retro Movies
 
 ### Investigación
@@ -81,3 +82,5 @@ mirar y pensar sobre cine.
 ### Vista final Maqueta
 ![img](https://preview.ibb.co/cL7S96/maqueta.png)
 ##### versión `0.0.1`
+=======
+>>>>>>> Implementacion imagenes carousel por api, modals buscador con detalles de la pelicula, perfil de usuario
