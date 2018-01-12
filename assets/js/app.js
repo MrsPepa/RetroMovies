@@ -204,7 +204,8 @@ function search() {
 */
 function searchMovie () {
   var title = $('.form-control').val();
-  var url = "https://www.omdbapi.com/?apikey=3a181f1c&s="+title;
+  var convertTitle = title.split(' ').join('+');
+  var url = "https://www.omdbapi.com/?apikey=3a181f1c&s="+convertTitle;
   console.log(url);
   $.ajax({
     url: url,
@@ -220,15 +221,30 @@ function renderMovies (response) {
   console.log(response);
   var movies = response.Search; // Retorna los array del resultado
   $('.second').empty();
-
+  $('.modal-search-results').empty();
+  $('.second').html('<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="results"><h1>Resultados</h1><div class="row search-results"></div></div></div>');
+  var j = 0;
+  var moviesArray = [];
   for(var i = 0; i < movies.length; i++) {
+    moviesArray.push(movies);
     var movie = movies[i];
-    var title = movie.Title;
-    var imbdID = movie.imbdID;
-    var imgPoster = movie.Poster;
-    $('.second').append('<li>'+title+'</li>')
+    $('.second').append('<div class="col-xs-12 col-md-6"><div class="row"><div class="col-xs-4 col-md-3"><img src="'+movie.Poster+'" title="'+movie.Title+'" class="img-thumbnail"></div><div class="col-xs-8 col-md-9"><ul class="text-left"><li>Titulo: '+movie.Title+'</li><li>Año: '+movie.Year+'</li><li>Formato: '+movie.Type+'</li></ul><button type="button" class="btn btn-info btn-md text-uppercase pull-right" data-toggle="modal" data-target="#modalInfo'+i+'">Ver Detalles</button></div></div></div>');
+      var title = movie.Title;
+      var convertTitle = title.split(' ').join('+');
+      console.log(moviesArray);
+    $.ajax({
+      url: "http://www.omdbapi.com/?apikey=3a181f1c&t="+convertTitle,
+      async: false,
+      success: modalDetailsByTitle
+    });
+    function modalDetailsByTitle (result) {
+      console.log(result);
+      var movieDetails = result;
+      $('.modal-search-results').append('<!-- Modal --><div id="modalInfo'+ j++ +'" class="modal fade" role="dialog"><div class="modal-dialog"><!-- Modal content--><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">'+movieDetails.Title+'</h4></div><div class="modal-body"><p>Some text in the modal.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>'); 
+    }
   }
 }
+
 function renderError (error) {
   console.error(error);
 }
@@ -259,60 +275,6 @@ $(document).ready(function(){
 });
 /* fin boton ir arriba */
 
-/*aparece login*/
- $('#loginmainnvb').click(function(){
-  $(".pagini").hide()
-  $('.contlog').append(`<section id="lab_video_slider" class="login-form-link">
-  <video autoplay muted loop id="myVideo">
-    <source src="assets/img/ipad.mp4" type="video/mp4">
-  </video>
-      <div class="container-fluid flip">
-      <div class="loginBox card">
-        <img src="assets/img/ticket.png" class="user">
-        <form>
-          <h2 class="logtitle">Iniciar sesión</h2>
-          <p>Email</p>
-          <input type="text" name="" id="email" placeholder="Email">
-          <p>Contraseña</p>
-          <input type="password" name="" id="contrasena" placeholder="••••••">
-          <input type="submit" name="" id="loginbtn" value="Inicia sesión">
-          <p>¿No tienes una cuenta?<a href="#" class="fliper-btn register-form-link"> Registrate</a></p>
-        </form>
-      </div>
-      </div>
-    </section>
-
-
-    <section id="lab_video_slider" class="signup-form-link">
-  <video autoplay muted loop id="myVideo">
-    <source src="assets/img/ipad.mp4" type="video/mp4">
-  </video>
-      <div class="container-fluid hide face back">
-      <div class="loginBox card">
-        <img src="assets/img/ticket.png" class="user">
-        <form>
-          <h2 class="logtitle">Registrate</h2>
-          <p>Email</p>
-          <input type="text" name="" id="email2" placeholder="Email">
-          <p>Contraseña</p>
-          <input type="password" name="" id="contrasena2" placeholder="••••••">
-          <input type="submit" name="" id="signup" value="Registrate">
-          <p>¿Ya tienes una cuenta?<a href="#" id="haveacc" class="fliper-btn login-form-link"> Inicia Sesión</p>
-        </form>
-      </div>
-      </div>
-    </section>`);
-
-    $('.register-form-link').click(function(){
-    $('.flip').addClass('hide')
-    $('.face').removeClass("hide");
-  });
-   $('#haveacc').click(function(){
-    $('.face').addClass('hide')
-    $('.flip').removeClass("hide");
-  });
-
-  });
 
 var topMovies = [
 
