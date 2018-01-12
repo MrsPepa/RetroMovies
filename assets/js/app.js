@@ -225,23 +225,20 @@ function renderMovies (response) {
   $('.modal-search-results').empty();
   $('.second').html('<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="results"><h1>Resultados</h1><div class="row search-results"></div></div></div>');
   var j = 0;
-  var moviesArray = [];
   for(var i = 0; i < movies.length; i++) {
-    moviesArray.push(movies);
     var movie = movies[i];
     $('.second').append('<div class="col-xs-12 col-md-6"><div class="row"><div class="col-xs-4 col-md-3"><img src="'+movie.Poster+'" title="'+movie.Title+'" class="img-thumbnail"></div><div class="col-xs-8 col-md-9"><ul class="text-left"><li>Titulo: '+movie.Title+'</li><li>Año: '+movie.Year+'</li><li>Formato: '+movie.Type+'</li></ul><button type="button" class="btn btn-info btn-md text-uppercase pull-right" data-toggle="modal" data-target="#modalInfo'+i+'">Ver Detalles</button></div></div></div>');
       var title = movie.Title;
       var convertTitle = title.split(' ').join('+');
-      console.log(moviesArray);
     $.ajax({
       url: "https://www.omdbapi.com/?apikey=3a181f1c&t="+convertTitle,
-      async: false,
+      //async: false,
       success: modalDetailsByTitle
     });
     function modalDetailsByTitle (result) {
       console.log(result);
       var movieDetails = result;
-      $('.modal-search-results').append('<!-- Modal --><div id="modalInfo'+ j++ +'" class="modal fade" role="dialog"><div class="modal-dialog"><!-- Modal content--><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">'+movieDetails.Title+'</h4></div><div class="modal-body"><p>Some text in the modal.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>'); 
+      $('.modal-search-results').append('<!-- Modal --><div id="modalInfo'+i+'" class="modal fade" role="dialog"><div class="modal-dialog"><!-- Modal content--><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4 class="modal-title">'+movieDetails.Title+'</h4></div><div class="modal-body"><p>Some text in the modal.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>'); 
     }
   }
 }
