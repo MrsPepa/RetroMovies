@@ -318,3 +318,6 @@ $('.logotipo').click(function () {
 $('.logoMovil').click(function () {
   window.location.href="index.html"
 });
+$('.retro').click(function() {
+  window.location.href="index.html"
+});
