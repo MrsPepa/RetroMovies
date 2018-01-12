@@ -189,7 +189,15 @@ h4 {
   height: 108vh;
 }
 #submit_login {
-  margin-left: -3em;
+  margin-left: -3.5em;
+  border: none;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background: #d83d38;
+    cursor: pointer;
+    border-radius: 20px;
 }
 .modal-dialog{
   padding-left: 13%;
@@ -213,6 +221,12 @@ h4 {
   background: rgba(0,0,0,.5);
   z-index: -1;
 }
+.buttonred{
+  font-size: 13px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 10px;
+}
 .user
 {
   width: 120px;
@@ -228,7 +242,14 @@ h4 {
   padding: 0 0 20px;
   color: #fff;
   text-align: center;
+  margin-top: 60px;
 }
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-top: 10px;
+    }
+
 .loginp
 {
   margin: 0;
@@ -244,7 +265,6 @@ h4 {
 .modal-bg{
   background-color: rgba(0, 0, 0, 0.32);
   width: 350px;
-  height: 420px;
 }
 .loginBox input[type="text"],
 .loginBox input[type="password"]
@@ -321,95 +341,95 @@ h4 {
 }
 
 .jcarousel li {
-    width: 200px;
-    float: left;
-    border: 1px solid #fff;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  width: 200px;
+  float: left;
+  border: 1px solid #fff;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .jcarousel img {
-    display: block;
-    max-width: 100%;
-    height: auto !important;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /** Carousel Controls **/
 
 .jcarousel-control-prev,
 .jcarousel-control-next {
-    position: absolute;
-    top: 50%;
-    margin-top: -15px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    background: #4E443C;
-    color: #fff;
-    text-decoration: none;
-    text-shadow: 0 0 1px #000;
-    font: 24px/27px Arial, sans-serif;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    -webkit-box-shadow: 0 0 4px #F0EFE7;
-    -moz-box-shadow: 0 0 4px #F0EFE7;
-    box-shadow: 0 0 4px #F0EFE7;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #4E443C;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0 1px #000;
+  font: 24px/27px Arial, sans-serif;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 0 0 4px #F0EFE7;
+  -moz-box-shadow: 0 0 4px #F0EFE7;
+  box-shadow: 0 0 4px #F0EFE7;
 }
 
 .jcarousel-control-prev {
-    left: 15px;
+  left: 15px;
 }
 
 .jcarousel-control-next {
-    right: 15px;
+  right: 15px;
 }
 
 /** Carousel Pagination **/
 
 .jcarousel-pagination {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    margin: 0;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  margin: 0;
 }
 
 .jcarousel-pagination a {
-    text-decoration: none;
-    display: inline-block;
+  text-decoration: none;
+  display: inline-block;
 
-    font-size: 11px;
-    height: 10px;
-    width: 10px;
-    line-height: 10px;
+  font-size: 11px;
+  height: 10px;
+  width: 10px;
+  line-height: 10px;
 
-    background: #fff;
-    color: #4E443C;
-    border-radius: 10px;
-    text-indent: -9999px;
+  background: #fff;
+  color: #4E443C;
+  border-radius: 10px;
+  text-indent: -9999px;
 
-    margin-right: 7px;
+  margin-right: 7px;
 
 
-    -webkit-box-shadow: 0 0 2px #4E443C;
-    -moz-box-shadow: 0 0 2px #4E443C;
-    box-shadow: 0 0 2px #4E443C;
+  -webkit-box-shadow: 0 0 2px #4E443C;
+  -moz-box-shadow: 0 0 2px #4E443C;
+  box-shadow: 0 0 2px #4E443C;
 }
 
 .jcarousel-pagination a.active {
-    background: #4E443C;
-    color: #fff;
-    opacity: 1;
+  background: #4E443C;
+  color: #fff;
+  opacity: 1;
 
-    -webkit-box-shadow: 0 0 2px #F0EFE7;
-    -moz-box-shadow: 0 0 2px #F0EFE7;
-    box-shadow: 0 0 2px #F0EFE7;
+  -webkit-box-shadow: 0 0 2px #F0EFE7;
+  -moz-box-shadow: 0 0 2px #F0EFE7;
+  box-shadow: 0 0 2px #F0EFE7;
 }
 
 
@@ -438,8 +458,19 @@ h4 {
     width: 90%;
     height: 65%;
   }
-}
 
+}
+@media(max-width: 768px) {
+  .modal-dialog {
+    padding-left:0;
+  }
+  .modal-bg {
+    width: 335px;
+  }
+  #submit_login {
+  margin-left:0;
+}
+}
 /*user profile*/
 .userprofile{
   background-color: #006D72;
@@ -471,6 +502,7 @@ margin-left:15%;
   font-size:16px;
 }
 
+
 .userimage-profile
 {
   margin: -45px 10px 0px 25px;
@@ -494,62 +526,62 @@ margin-left:15%;
 
 #demo h1 /* delet it */
 {
-    text-align:center;
-    color:#888;
-    padding-bottom:5px;
+  text-align:center;
+  color:#888;
+  padding-bottom:5px;
 }
 
 #demo p /* delet it */
 {
-    text-align:center;
-    color:#777;
-    padding-bottom:15px;
-    font-size:21px;
-    letter-spacing:1px;
+  text-align:center;
+  color:#777;
+  padding-bottom:15px;
+  font-size:21px;
+  letter-spacing:1px;
 }
 
 #demo .row /* delet it */
 {
-    padding-top:20vh;
-    padding-bottom:40px;
+  padding-top:20vh;
+  padding-bottom:40px;
 }
 
 #demo img
 {
-    box-shadow:1px 1px 5px #000;
-    max-height:15em; /* delet it */
+  box-shadow:1px 1px 5px #000;
+  max-height:15em; /* delet it */
 }
 
 #demo img:hover
 {
-    transition:all 0.6s; /* Change Speed */
-    -ms-transform: scale(2, 2); /* IE 9 */
-    -webkit-transform: scale(2, 2); /* Safari */
-    transform: scale(2, 2); /* Change Size */
-    overflow:visible;
-    z-index:1 !important; /* you can change it, but better let this in default */
+  transition:all 0.6s; /* Change Speed */
+  -ms-transform: scale(2, 2); /* IE 9 */
+  -webkit-transform: scale(2, 2); /* Safari */
+  transform: scale(2, 2); /* Change Size */
+  overflow:visible;
+  z-index:1 !important; /* you can change it, but better let this in default */
 }
 
 
 #demo .item-1:hover
 {
-    -ms-transform: translate(100px); /* IE 9 */
-    -webkit-transform: translate(100px); /* Safari */
-    transform: translate(100px); /* Change Offset */
-    z-index:2; /* you can change it, but better let this in default */
+  -ms-transform: translate(100px); /* IE 9 */
+  -webkit-transform: translate(100px); /* Safari */
+  transform: translate(100px); /* Change Offset */
+  z-index:2; /* you can change it, but better let this in default */
 }
 
 #demo .item-2:hover
 {
-    z-index:2; /* you can change it, but better let this in default */
+  z-index:2; /* you can change it, but better let this in default */
 }
 
 #demo .item-3:hover
 {
-    -ms-transform: translate(-100); /* IE 9 */
-    -webkit-transform: translate(-100px); /* Safari */
-    transform: translate(-100px); /* Change Offset */
-    z-index:2; /* you can change it, but better let this in default */
+  -ms-transform: translate(-100); /* IE 9 */
+  -webkit-transform: translate(-100px); /* Safari */
+  transform: translate(-100px); /* Change Offset */
+  z-index:2; /* you can change it, but better let this in default */
 }
 
 /*img*/
@@ -579,14 +611,14 @@ a:hover {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   max-width: 100%;
   margin-top: 10vh;
   margin-left: auto;
   margin-right: auto;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .movie-card {
